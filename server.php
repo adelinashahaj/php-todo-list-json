@@ -13,13 +13,17 @@ $todoList = [
         'text'=>'Fare i compiti',
         'done'=> true
     ],
+    [
+        'text'=>'Uscire con gli amici',
+        'done'=> false
+    ],
     
 ];
 
 if(isset($_POST['newTodo'])){
     $new_todo = ['text' => $_POST["newTodo"]];
     $todoList[] = $new_todo;
-    $todoList[] = $_POST['newTodo'];
+    
 }
 
 header('Content-Type: application/json');
