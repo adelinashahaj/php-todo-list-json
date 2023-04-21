@@ -17,7 +17,7 @@ createApp({
         },
         addTodo() {
             const data = {
-                newTodo: this.newTodo
+                newTodo: this.newTodo,
             };
             axios.post('server.php', data,
             {
@@ -28,10 +28,23 @@ createApp({
                 this.newTodo = '';
             });
         },
-       
+       toggle(index){
+        const data = {
+            toggleindex: index,
+        };
+    
+        axios.post('server.php', data,
+        {
+            headers: {'Content-Type': 'multipart/form-data'},
+        }
+        ).then(response => {
+            this.todoList = response.data;
+           
+        });
+       },
         deleteTask(index) {
             const data = {
-               
+               taskindex: index,
             };
         
             axios.post('server.php', data,
