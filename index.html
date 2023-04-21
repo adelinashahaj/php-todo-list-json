@@ -11,17 +11,17 @@
 <body>
     <div id="app">
         <div class="wrapper">
-            <div class="container">
+            <div class="container w-50">
                 <h1>PHP ToDoList JSON</h1>
                 <div class="row">
                     <div class="col-8">
                         <ul class="list-group">
                             <li class="list-group-item d-flex justify-content-between" 
                             v-for="(todo, index) in todoList"
-                            :class="{'text-decoration-line-through': todo.done}">
-                                <span @click="toggle(index)">
+                            :class="{'text-decoration-line-through': todo.done}" @click="toggle(index)">
+                               
                                     {{ todo.text }}
-                                </span>
+                                
                                 <i class="fa-solid fa-trash-can" @click="deleteTask(index)"></i>
                             </li>
                         </ul>
@@ -29,7 +29,7 @@
                 </div>
                 <div class="row">
                     <div class="col-8 d-flex mt-3">
-                        <input class="form-control" type="text" placeholder="Scrivi nuovo todo.." aria-label="Inserisci un nuovo todo" v-model="newTodo">
+                        <input class="form-control" type="text" placeholder="Scrivi nuovo todo.." v-model="newTodo">
                         <button class="btn btn-primary" @click="addTodo">Aggiungi</button>                        
                     </div>
                 </div>
