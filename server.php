@@ -28,7 +28,12 @@ if (isset($_POST['newTodo'])) {
     $myString = json_encode($todoList);
     file_put_contents('database.json', $myString);
 
-}
-
+}elseif (isset($_POST['taskindex'])) {
+   // cancellazione di un task
+    $todoIndex = $_POST['taskindex'];
+    array_splice($todoList, $todoIndex, 1);
+    $myString = json_encode($todoList);
+    file_put_contents('database.json', $myString);
+};
 header('Content-Type: application/json');
 echo json_encode($todoList);
