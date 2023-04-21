@@ -12,12 +12,11 @@ if (file_exists('database.json')) {
 }
 
 
-
 if (isset($_POST['newTodo'])) {
     // aggunta dei dati new task
     $new_todo = ['text' => $_POST["newTodo"], 'done'=> false];
     $todoList[] = $new_todo;
-    // Scrivo i dati nel file
+    // Scrivo i dati nel file .json
     $myString = json_encode($todoList);
     file_put_contents('database.json', $myString);
     
@@ -28,7 +27,7 @@ if (isset($_POST['newTodo'])) {
     $myString = json_encode($todoList);
     file_put_contents('database.json', $myString);
 
-}elseif (isset($_POST['taskindex'])) {
+}if (isset($_POST['taskindex'])) {
    // cancellazione di un task
     $todoIndex = $_POST['taskindex'];
     array_splice($todoList, $todoIndex, 1);
